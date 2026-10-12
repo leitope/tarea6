@@ -1,0 +1,168 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0f19;
+    color: #ffffff;
+    min-height: 200vh; /* Permite hacer scroll para probar sticky y fixed */
+}
+
+/* 1. STICKY: Cabecera */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f5b027;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.navbar nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 20px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #ffffff;
+}
+
+/* Sección Héroe */
+.hero {
+    background-color: #000000;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+/* Contenedor Principal usando calc() */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: calc(100% - 80px);
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+/* Contenedor para absolute */
+.card {
+    background-color: #1a202c;
+    border-radius: 12px;
+    overflow: hidden;
+    width: calc(50% - 20px);
+    min-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Transformación al pasar el cursor sobre la tarjeta */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Contenedor de Imagen con Posicionamiento Relativo */
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantener proporción 16:9 */
+    overflow: hidden;
+}
+
+/* Optimización de Imagen y Filtros con Transición */
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste profesional de la imagen */
+    filter: grayscale(80%) brightness(0.8); /* Filtro inicial */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Efecto Hover en la Imagen */
+.card:hover .card-img {
+    filter: grayscale(0%) brightness(1.1); /* Restaura color y brillo */
+    transform: scale(1.05); /* Efecto de zoom suave */
+}
+
+/* 3. ABSOLUTE: Etiquetas flotantes sobre la imagen */
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.badge-yoda {
+    background-color: #00bcd4;
+}
+
+.badge-sith {
+    background-color: #e91e63;
+}
+
+/* Contenido de la Tarjeta */
+.card-content {
+    padding: 25px 20px;
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #a0aec0;
+    font-size: 0.95rem;
+}
+
+/* 4. FIXED: Botón Flotante para subir */
+.btn-fixed {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #f5b027;
+    color: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 999;
+}
+
+.btn-fixed:hover {
+    transform: scale(1.15) translateY(-3px);
+    background-color: #ffffff;
+}
